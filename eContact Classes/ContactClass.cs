@@ -180,6 +180,51 @@ namespace EContact.eContact_Classes
 
         }
 
+        //method to delete data from the db
+        public bool Delete(ContactClass c)
+        {
+
+            bool isDelete = false;
+
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+
+            try
+            {
+                string sql = "DELETE FROM tbl_contact WHERE ContactID=@ContactID";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@ContactID", c.ContactID);
+
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
+                if(rows > 0)
+                {
+                    isDelete = true;
+                }
+                else
+                {
+                    isDelete = false;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+
+            }   
+
+
+
+            return isDelete;
+        }
+
 
 
 
