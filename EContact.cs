@@ -56,7 +56,7 @@ namespace EContact
             if (success == true)
             {
                 //successfully inserted
-                MessageBox.Show("New Contact Successfully Inserted");
+                MessageBox.Show("Created Contact Successfully ");
                 //call the clear method here
                 //Clear();
             }
