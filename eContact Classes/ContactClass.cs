@@ -169,6 +169,7 @@ namespace EContact.eContact_Classes
             }
             finally
             {
+                conn.Close();
 
             }
 
