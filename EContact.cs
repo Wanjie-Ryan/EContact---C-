@@ -43,6 +43,28 @@ namespace EContact
         {
 
             //get the values from the input fields
+            c.FirstName = txtBoxFirstName.Text;
+            c.LastName = txtBoxLastName.Text;
+            c.ContactNo = txtBoxContactNumber.Text;
+            c.Address = txtBoxAddress.Text;
+            c.Gender = cmbGender.Text;
+
+            //inserting data into db using the method we created in the contact class
+
+            bool success = c.Insert(c);
+
+            if (success == true)
+            {
+                //successfully inserted
+                MessageBox.Show("New Contact Successfully Inserted");
+                //call the clear method here
+                //Clear();
+            }
+            else
+            {
+                //failed to add contact
+                MessageBox.Show("Failed to add new contact. Try again");
+            }
 
 
         }
