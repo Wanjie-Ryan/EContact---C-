@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EContact.eContact_Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,7 @@ namespace EContact
         {
             InitializeComponent();
         }
+        ContactClass c = new ContactClass();
 
         private void txtboxcontactID_TextChanged(object sender, EventArgs e)
         {
@@ -34,6 +36,14 @@ namespace EContact
 
         private void label1_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            //get the values from the input fields
+
 
         }
     }
