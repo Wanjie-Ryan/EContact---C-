@@ -143,7 +143,7 @@ namespace EContact.eContact_Classes
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
 
-                //create parameters to add data
+                //create parameters to add data, done like this to prevent sql injection
                 cmd.Parameters.AddWithValue("@FirstName", c.FirstName);
                 cmd.Parameters.AddWithValue("@LasttName", c.LastName);
                 cmd.Parameters.AddWithValue("@ContactNo", c.ContactNo);
