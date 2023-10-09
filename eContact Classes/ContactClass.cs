@@ -68,6 +68,46 @@ namespace EContact.eContact_Classes
 
         //inserting data into db
 
+        public bool Insert(ContactClass c)
+        {
+            //creating a default value return type and setting its value to false
+
+            bool isSuccess = false;
+
+            //1. connect to db
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+            try
+            {
+                //2. create a sql query to insert data
+                string sql = "INSERT INTO tbl_contact (FirstName, LastName, ContactNo, Address, Gender) VALUES (@FirstName, @LastName, @ContactNo, @Address, @Gender) ";
+
+                // Creating cmd using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                //create parameters to add data
+                cmd.Parameters.AddWithValue("@FirstName", c.FirstName);
+                cmd.Parameters.AddWithValue("@LastName", c.LastName);
+                cmd.Parameters.AddWithValue("@ContactNo", c.ContactNo);
+                cmd.Parameters.AddWithValue("@Address", c.Address);
+                cmd.Parameters.AddWithValue("@Gender", c.Gender);
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
+
+            }
+
+
+
+            return isSuccess;
+        }
+
 
 
 
