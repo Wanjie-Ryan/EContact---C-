@@ -92,6 +92,24 @@ namespace EContact.eContact_Classes
                 cmd.Parameters.AddWithValue("@Address", c.Address);
                 cmd.Parameters.AddWithValue("@Gender", c.Gender);
 
+                //open the connection
+                conn.Open(); 
+                
+                int rows = cmd.ExecuteNonQuery();
+
+                // if the query runs successfully then the value of rows will be greater than 0 else it will be 0
+
+                if (rows > 0)
+                {
+                    isSuccess = true;
+                }
+                else
+                {
+                    isSuccess = false;
+                }
+
+               
+
             }
             catch(Exception ex)
             {
@@ -107,6 +125,8 @@ namespace EContact.eContact_Classes
 
             return isSuccess;
         }
+
+
 
 
 
