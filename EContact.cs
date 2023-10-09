@@ -58,7 +58,7 @@ namespace EContact
                 //successfully inserted
                 MessageBox.Show("Created Contact Successfully ");
                 //call the clear method here
-                //Clear();
+                Clear();
             }
             else
             {
@@ -79,6 +79,21 @@ namespace EContact
             DataTable dt = c.Select();
             dgvContactList.DataSource = dt;
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        //method to clear fields
+        public void Clear()
+        {
+            txtBoxFirstName.Text = "";
+            txtBoxLastName.Text = "";
+            txtBoxContactNumber.Text = "";
+            txtBoxAddress.Text = "";
+            cmbGender.Text = "";
         }
     }
 }
