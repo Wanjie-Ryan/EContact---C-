@@ -66,6 +66,18 @@ namespace EContact
                 MessageBox.Show("Failed to add new contact. Try again");
             }
 
+            //loading the data to the data grid view
+
+            DataTable dt = c.Select();
+            dgvContactList.DataSource = dt;
+
+
+        }
+
+        private void EContact_Load(object sender, EventArgs e)
+        {
+            DataTable dt = c.Select();
+            dgvContactList.DataSource = dt;
 
         }
     }
