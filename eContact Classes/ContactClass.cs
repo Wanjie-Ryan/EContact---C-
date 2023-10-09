@@ -126,7 +126,37 @@ namespace EContact.eContact_Classes
             return isSuccess;
         }
 
+        //method to update data in db from our app
 
+        public bool Update(ContactClass c)
+        {
+            //creating a default value return type and setting its value to false
+            bool isSuccess = false;
+
+            SqlConnection conn = new SqlConnection(myconnstrng);
+
+
+            try
+            {
+
+                string sql = "UPDATE tbl_contact SET ";
+
+            }
+            catch(Exception ex)
+            {
+
+            }
+            finally
+            {
+
+            }
+
+
+
+            return isSuccess;
+
+
+        }
 
 
 
