@@ -145,7 +145,7 @@ namespace EContact.eContact_Classes
 
                 //create parameters to add data, done like this to prevent sql injection
                 cmd.Parameters.AddWithValue("@FirstName", c.FirstName);
-                cmd.Parameters.AddWithValue("@LasttName", c.LastName);
+                cmd.Parameters.AddWithValue("@LastName", c.LastName);
                 cmd.Parameters.AddWithValue("@ContactNo", c.ContactNo);
                 cmd.Parameters.AddWithValue("@Address", c.Address);
                 cmd.Parameters.AddWithValue("@Gender", c.Gender);

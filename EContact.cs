@@ -111,16 +111,24 @@ namespace EContact
 
             bool success = c.Update(c);
 
-            if (success)
+
+
+
+            if (success == true)
             {
                 MessageBox.Show("Contact has been updated successfully");
+                DataTable dt = c.Select();
+                dgvContactList.DataSource = dt;
+                Clear();
 
             }
             else
             {
+
                 MessageBox.Show("Failed to update contact. Try again");
 
             }
+            
 
 
 
