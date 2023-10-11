@@ -180,5 +180,13 @@ namespace EContact
             }
 
         }
+
+        private void txtboxSearch_TextChanged(object sender, EventArgs e)
+        {
+            // get the value from the textbox
+
+            string keyword = txtboxSearch.Text;
+
+        }
     }
 }
