@@ -95,5 +95,52 @@ namespace EContact
             txtBoxAddress.Text = "";
             cmbGender.Text = "";
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //get data from the textboxes
+
+            c.ContactID = int.Parse(txtboxContactID.Text);
+            c.FirstName = txtBoxFirstName.Text;
+            c.LastName = txtBoxLastName.Text;
+            c.ContactNo = txtBoxContactNumber.Text;
+            c.Address = txtBoxAddress.Text;
+            c.Gender = cmbGender.Text;
+
+            //update the data in the database
+
+            bool success = c.Update(c);
+
+            if (success)
+            {
+                MessageBox.Show("Contact has been updated successfully");
+
+            }
+            else
+            {
+                MessageBox.Show("Failed to update contact. Try again");
+
+            }
+
+
+
+        }
+
+        private void dgvContactList_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //get the data from the data grid view and load it to the textboxes respectively
+            //identify the row which the mouse is clicked
+
+            int rowIndex = e.RowIndex;
+            txtboxContactID.Text = dgvContactList.Rows[rowIndex].Cells[0].Value.ToString();
+            txtBoxFirstName.Text = dgvContactList.Rows[rowIndex].Cells[1].Value.ToString();
+            txtBoxLastName.Text = dgvContactList.Rows[rowIndex].Cells[2].Value.ToString();
+            txtBoxContactNumber.Text = dgvContactList.Rows[rowIndex].Cells[3].Value.ToString();
+            txtBoxAddress.Text = dgvContactList.Rows[rowIndex].Cells[4].Value.ToString();
+            cmbGender.Text = dgvContactList.Rows[rowIndex].Cells[5].Value.ToString();
+
+
+
+        }
     }
 }
