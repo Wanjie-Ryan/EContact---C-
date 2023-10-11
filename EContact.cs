@@ -94,6 +94,7 @@ namespace EContact
             txtBoxContactNumber.Text = "";
             txtBoxAddress.Text = "";
             cmbGender.Text = "";
+            txtboxContactID.Text = "";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -148,6 +149,35 @@ namespace EContact
             cmbGender.Text = dgvContactList.Rows[rowIndex].Cells[5].Value.ToString();
 
 
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //call the clear method
+
+            Clear();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            // get the id from the textbox
+
+            c.ContactID = Convert.ToInt32(txtboxContactID.Text);
+            bool success = c.Delete(c);
+
+            if(success == true)
+            {
+                MessageBox.Show("Contact has been deleted successfully");
+                DataTable dt = c.Select();
+                dgvContactList.DataSource = dt;
+                Clear();
+
+            }
+            else
+            {
+                MessageBox.Show("Failed to delete contact. Try again");
+            }
 
         }
     }
